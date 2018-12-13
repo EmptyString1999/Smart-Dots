@@ -66,8 +66,8 @@ function Population(){
   this.naturalSelection = function(){
     var newRockets = [];
     for(i = 0; i < this.rockets.length; i++){
-      var parentA = random(this.matingpool).dna;
-      var parentB = random(this.matingpool).dna;
+      var parentA = random(this.matingPool).dna;
+      var parentB = random(this.matingPool).dna;
       var child = parentA.crossover(parentB);
       newRockets[i] = new Rocket(child);
     }
@@ -100,9 +100,9 @@ function DNA(genes){
     var mid = floor(random(this.genes.length))
     for(var i = 0; i < this.genes.length; i++){
     	if(i > mid){
-        newdna[i] = this.genes[i];
+        newgenes[i] = this.genes[i];
       } else {
-      	newdna[i] = partner.genes[i];
+      	newgenes[i] = partner.genes[i];
       }
     }
     return new DNA(newgenes);
