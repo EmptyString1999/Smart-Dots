@@ -3,6 +3,7 @@ var population;
 var lifespan = 200;
 var lifeP;
 var count = 0;
+var gen = 0;
 var target;
 
 function setup() {
@@ -10,6 +11,7 @@ function setup() {
   rocket = new Rocket();
   population = new Population();
   lifeP = createP();
+  genP = createP();
   target = createVector(width/2, 10);
 }
 
@@ -17,12 +19,14 @@ function draw() {
   background(0);
   population.run();
   
-  lifeP.html(count);
+  lifeP.html("Frame: " + count);
+  genP.html("Generation: " + gen);
   count++;
   if(count == lifespan){
   	count = 0;
     population.evaluate();
     population.naturalSelection();
+    gen++;
   }
   
   ellipse(target.x, target.y, 16, 16);
